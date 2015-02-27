@@ -1,0 +1,335 @@
+/*******************
+
+sens red - c81f31
+sens yellow - d69f10
+
+
+*****************/
+
+body { padding-top: 70px; }
+
+h2 {
+
+	color: #d69f10 !important;
+}
+
+h4 {
+
+	color: #c81f31 !important;
+
+
+}
+
+.navbar-toggle {
+	float: left !important ;
+	margin-left: 15px !important ;
+	margin-right: 0 !important ;
+	border-color: #c81f31 !important;
+
+}
+
+.navbar-toggle:focus{
+
+	background-color: #c81f31 !important;
+
+
+}
+
+
+.navbar-toggle:hover {
+
+	background-color: #c81f31 !important;
+
+
+}
+
+
+.icon-bar {
+
+	background-color: #fff !important;
+}
+
+
+
+.navbar-default {
+
+	background-color: #c81f31 !important;
+
+}
+
+.myBrand {
+	padding: 5px 5px !important;
+	
+}
+
+.mySearch {
+
+	float: right !important;
+
+
+}
+
+.navbar-brand {
+
+	color: white !important;
+
+}
+
+.navbar-brand:hover {
+
+	color: white !important;
+	
+}
+
+
+.myInput-group {
+
+   margin: 3% !important; 
+
+   width: 97% !important;
+
+   
+
+}
+
+.progress-bar-sens {
+
+	background-color: #d69f10 !important;
+}
+
+.jumbotron {
+    
+    float: left !important;
+
+    background: url('../media/login_bg.png') !important;
+    
+
+}
+
+.jumbotron .loginBtns p {
+    
+    margin: 0 !important;
+    
+
+}
+
+.loginBtn {
+   
+   float: left !important;
+   display: inline-block !important;
+   margin-left: 2% !important;
+   width: 48% !important;
+
+}
+
+.contactBtn {
+	width: 100% !important;
+	background: #c81f31 !important;
+	border-color: #c81f31 !important;
+ 
+
+}
+
+.loginBtn:nth-of-type(1) {
+
+	background-color: #c81f31 !important;
+	border-color: #c81f31 !important;
+}
+
+
+
+.loginBtns {
+
+	clear: both;
+	
+	width: 100%;
+	margin-top: 10%;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+
+
+}
+
+
+.introText {
+
+	text-align: center;
+	color: #fff;
+}
+
+
+.logo {
+
+	width: 150px !important;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+
+#pwrapper {
+
+	
+	float: left;
+	width: 100%;
+	max-width: 960px;
+}
+
+#pmain {
+
+	width: 100%;
+	float: left;
+	margin-left: 2%;
+
+}
+
+#psidebar {
+
+	width: 35%;
+	
+	float: left;
+
+}
+
+#pmain .row {
+
+	margin: 3% 0 !important;
+}
+
+.pdefault {
+	width: 100% !important;
+	box-shadow: 0 1px 2px rgba(0,0,0,.05);
+	float: left;
+}
+
+
+.my-control {
+
+	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05) !important;
+	-moz-box-shadow: 0 1px 2px rgba(0,0,0,.05) !important;
+	-ms-box-shadow: 0 1px 2px rgba(0,0,0,.05) !important;
+    box-shadow: 0 1px 2px rgba(0,0,0,.05) !important;
+    height: auto !important;
+
+}
+
+
+.my-control[disabled] {
+    cursor: default !important;
+    background: #fff !important;
+    /*opacity: 0 !important;*/
+
+
+}
+
+
+
+.shadowButton {
+
+	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05) !important;
+	-moz-box-shadow: 0 1px 2px rgba(0,0,0,.05) !important;
+	-ms-box-shadow: 0 1px 2px rgba(0,0,0,.05) !important;
+    box-shadow: 0 1px 2px rgba(0,0,0,.05) !important;
+
+
+}
+
+
+.newButton {
+
+	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05) !important;
+	-moz-box-shadow: 0 1px 2px rgba(0,0,0,.05) !important;
+	-ms-box-shadow: 0 1px 2px rgba(0,0,0,.05) !important;
+    box-shadow: 0 1px 2px rgba(0,0,0,.05) !important;
+    background-color: #c81f31 !important;
+    color: white !important;
+
+
+
+}
+
+
+.form-control {
+
+	 height: auto !important;
+
+}
+
+::-webkit-input-placeholder {
+   color: #000000 !important;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   color: #000000 !important;  
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   color: #000000 !important;  
+}
+
+:-ms-input-placeholder {  
+   color: #000000 !important;  
+}
+
+.shadowButton:hover,
+.shadowButton:focus,
+.shadowButton.focus,
+.shadowButton:active,
+.shadowButton.active,
+.open > .shadowButton.btn-default {
+  color: #000 !important;
+  background-color: #d69f10 !important;
+  border-color: #adadad !important;
+}
+
+
+
+.myCol {
+
+
+	width: 100% !important;
+
+
+}
+
+#psidebar {
+
+	display: none !important;
+}
+
+
+
+
+@media (min-width: 320px) {
+
+	.myBrand {
+		display: none !important;
+	}
+
+
+}
+
+@media (min-width: 768px) {
+
+ .navbar-toggle {
+   display: block !important;
+   margin-right: 15px !important;
+    }
+
+   .myBrand {
+		display: block !important;
+	}
+
+	#psidebar {
+
+	display: block !important;
+}
+
+#pmain {
+
+	width: 63% !important;
+}
+
+}
+
