@@ -1,0 +1,297 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>PunyCode</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+<link href="styles/style.css" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+	<div class="container">
+    	
+        <div class="jumbotron">
+        	
+            <h1>PunyCode.js</h1>
+        	<h3>By Will Muir and Nick Pietrantonio</h3>
+            
+        </div>
+        
+          <div class="row">
+            
+            <div class="col-md-2">
+
+            </div>
+            
+        	<div class="col-md-8">
+				<h1>What is PunyCode?</h1>
+                <p>Punycode is a way to decode Unicode characters (UTF-8 - other special character like é) into regular ASCII characters so they can be read by computers in instances where Unicode special characters are not allowed ex domain names.</p>
+                <h3>Not to be confused with code puns</h3>
+            </div>
+            
+            <div class="col-md-2">
+
+            </div>
+            
+        </div>
+        
+        
+         <div class="row">
+         
+            <div class="col-md-2">
+
+            </div>
+            
+        	<div class="col-md-8">
+            
+            	<h1>Example</h1>
+				<img src="images/puny.jpg" alt="puny">
+            </div>
+            
+            <div class="col-md-2">
+
+            </div>
+            
+        </div>
+        
+        <div class="row">
+         
+            <div class="col-md-2">
+
+            </div>
+            
+        	<div class="col-md-8">
+            
+            	<h1>Pun</h1>
+                <p>q. How do you comfort a JavaScript bug?</p>
+				<p>a. You console it.</p>
+            </div>
+            
+            <div class="col-md-2">
+
+            </div>
+            
+        </div>
+        
+          <div class="row">
+                    
+            <div class="col-md-2">
+
+            </div>
+            
+        	<div class="col-md-8">
+				<h1>Why use PunyCode?</h1>
+                <p>Let’s say we have an RPG game where every character you create gets their own website. If I create a character named ‘Conan’ my website will be ‘bestgame-conan.com’ (as an example).
+The problem is that there are always people in RPG games who want games like ‘Conan’, ‘Legolas’, ‘Thorin’, ‘Shadow’ or any number of cliched names, and they will do anything they can to get that name. You end up with names like ‘xLégôlåŠx’ ‘ŽeÜs’ and other names that are impossible to type. These names also could not be used in domain names. This is when we would use our Punycode.</p>
+            </div>
+            
+            <div class="col-md-2">
+
+            </div>
+            
+        </div>
+        
+        
+         <div class="row">
+         
+            <div class="col-md-2">
+
+            </div>
+            
+        	<div class="col-md-8">
+            	<h1>Example</h1>
+				<img src="images/step5.jpg" alt="puny">
+            </div>
+            
+            <div class="col-md-2">
+
+            </div>
+            
+        </div>
+        
+        <div class="row">
+         
+            <div class="col-md-2">
+
+            </div>
+            
+        	<div class="col-md-8">
+            
+            	<h1>Pun</h1>
+                <p>q. Why was the JavaScript developer sad?</p>
+				<p>a. Because he didn't Node how to Express himself.</p>				
+            </div>
+            
+            <div class="col-md-2">
+
+            </div>
+            
+        </div>
+        
+          <div class="row">
+                    
+            <div class="col-md-2">
+
+            </div>
+            
+        	<div class="col-md-8">
+				<h1>How to Install</h1>
+                <p>First we need to go into node and install the Punycode module. Punycode now comes core with node.js.<br>
+                    Type:<br>
+                    
+                    <kbd>npm install punycode</kbd><br>
+                    
+                    This will install punycode into node.<br>
+                    Now we can go into node and start taking advantage of some new functions punycode gives us.
+                    </p>
+            </div>
+            
+            <div class="col-md-2">
+
+            </div>
+            
+        </div>
+        
+        
+         <div class="row">
+         
+            <div class="col-md-2">
+
+            </div>
+            
+        	<div class="col-md-8">
+            	<h1>Example</h1>
+				<img src="images/step2.jpg" alt="puny">
+            </div>
+            
+            <div class="col-md-2">
+
+            </div>
+            
+        </div>
+        
+        <div class="row">
+         
+            <div class="col-md-2">
+
+            </div>
+            
+        	<div class="col-md-8">
+            
+            	<h1>Pun</h1>
+                <p>q. Why was the font tag an orphan?</p>
+				<p>a. Because it didn't have a font family.</p>						
+            </div>
+            
+            <div class="col-md-2">
+
+            </div>
+            
+        </div>        
+        
+          <div class="row">
+                    
+            <div class="col-md-2">
+
+            </div>
+            
+        	<div class="col-md-8">
+				<h1>How to Use</h1>
+                <p>Let’s use punycode to encode our ‘xLégôlåŠx’ name:<br>
+
+                    <kbd>punycode.encode(‘xLégôlåŠx’);</kbd><br>
+                    
+                    Should produce:<br>
+                    
+                    <kbd>‘xLglx-praz3g81c’</kbd><br>
+                    
+                    Now if we wanted to use our punycode function to create that domain for this person’s profile we would type in this<br>
+                    
+                    <kbd>punycode.toASCII(‘bestgame-xLégôlåŠx.com’);</kbd><br>
+                    
+                    will produce:<br>
+                    
+                    <kbd>‘xn--bestgame-xLglx-xib5d2kw8e.com’</kbd><br>
+                    
+                    Not the prettiest  domain but now it no longers contains the special characters. That’s what they get for having stupid characters in their name.</p>
+            </div>
+            
+            <div class="col-md-2">
+
+            </div>
+            
+        </div>
+        
+        
+         <div class="row">
+         
+            <div class="col-md-2">
+
+            </div>
+            
+        	<div class="col-md-8">
+            	<h1>Example</h1>
+				<img src="images/step3.jpg" alt="puny">				
+            </div>
+            
+            <div class="col-md-2">
+
+            </div>
+            
+        </div>
+        
+        <div class="row">
+         
+            <div class="col-md-2">
+
+            </div>
+            
+        	<div class="col-md-8">
+            
+            	<h1>Pun</h1>
+                <p>q. Why was the HTML bird invalid?</p>
+				<p>a. It wasn't nested properly.</p>					
+            </div>
+            
+            <div class="col-md-2">
+
+            </div>
+            
+        </div>
+
+        
+         <div class="row">
+         
+            <div class="col-md-2">
+
+            </div>
+            
+        	<div class="col-md-8">
+<!------------found at https://mothereff.in/punycode-------------------->
+<h1>Punycode Encoder</h1>
+<noscript><strong>To use this tool, please <a href=//enable-javascript.com/>enable JavaScript</a> and reload the page.</strong></noscript>
+<p><kbd id=decoded contenteditable>xLégôlåŠx</kbd> encodes to <kbd id=encoded contenteditable>xn--xlglx-praz3gx2c</kbd>.
+<p id=footer>Made by <a href=https://mathiasbynens.be/>@mathias</a> — <a href=https://github.com/bestiejs/punycode.js>powered by Punycode.js</a></p>
+<p id=footer><a href=https://mothereff.in/punycode>Source</a> - <a href=https://github.com/mathiasbynens/mothereff.in/tree/master/punycode>GitHub</a></p>
+<script>!function(e){function n(e){throw RangeError(U[e])}function t(e,n){for(var t=e.length,o=[];t--;)o[t]=n(e[t]);return o}function o(e,n){var o=e.split("@"),r="";o.length>1&&(r=o[0]+"@",e=o[1]),e=e.replace(B,".");var i=e.split("."),c=t(i,n).join(".");return r+c}function r(e){for(var n,t,o=[],r=0,i=e.length;i>r;)n=e.charCodeAt(r++),n>=55296&&56319>=n&&i>r?(t=e.charCodeAt(r++),56320==(64512&t)?o.push(((1023&n)<<10)+(1023&t)+65536):(o.push(n),r--)):o.push(n);return o}function i(e){return t(e,function(e){var n="";return e>65535&&(e-=65536,n+=F(e>>>10&1023|55296),e=56320|1023&e),n+=F(e)}).join("")}function c(e){return 10>e-48?e-22:26>e-65?e-65:26>e-97?e-97:x}function u(e,n){return e+22+75*(26>e)-((0!=n)<<5)}function a(e,n,t){var o=0;for(e=t?D(e/b):e>>1,e+=D(e/n);e>S*C>>1;o+=x)e=D(e/S);return D(o+(S+1)*e/(e+I))}function l(e){var t,o,r,u,l,d,f,s,p,h,g=[],m=e.length,v=0,I=E,b=A;for(o=e.lastIndexOf(j),0>o&&(o=0),r=0;o>r;++r)e.charCodeAt(r)>=128&&n("not-basic"),g.push(e.charCodeAt(r));for(u=o>0?o+1:0;m>u;){for(l=v,d=1,f=x;u>=m&&n("invalid-input"),s=c(e.charCodeAt(u++)),(s>=x||s>D((y-v)/d))&&n("overflow"),v+=s*d,p=b>=f?w:f>=b+C?C:f-b,!(p>s);f+=x)h=x-p,d>D(y/h)&&n("overflow"),d*=h;t=g.length+1,b=a(v-l,t,0==l),D(v/t)>y-I&&n("overflow"),I+=D(v/t),v%=t,g.splice(v++,0,I)}return i(g)}function d(e){var t,o,i,c,l,d,f,s,p,h,g,m,v,I,b,k=[];for(e=r(e),m=e.length,t=E,o=0,l=A,d=0;m>d;++d)g=e[d],128>g&&k.push(F(g));for(i=c=k.length,c&&k.push(j);m>i;){for(f=y,d=0;m>d;++d)g=e[d],g>=t&&f>g&&(f=g);for(v=i+1,f-t>D((y-o)/v)&&n("overflow"),o+=(f-t)*v,t=f,d=0;m>d;++d)if(g=e[d],t>g&&++o>y&&n("overflow"),g==t){for(s=o,p=x;h=l>=p?w:p>=l+C?C:p-l,!(h>s);p+=x)b=s-h,I=x-h,k.push(F(u(h+b%I,0))),s=D(b/I);k.push(F(u(s,0))),l=a(o,v,i==c),o=0,++i}++o,++t}return k.join("")}function f(e){return o(e,function(e){return k.test(e)?l(e.slice(4).toLowerCase()):e})}function s(e){return o(e,function(e){return T.test(e)?"xn--"+d(e):e})}var p="object"==typeof exports&&exports&&!exports.nodeType&&exports,h="object"==typeof module&&module&&!module.nodeType&&module,g="object"==typeof global&&global;(g.global===g||g.window===g||g.self===g)&&(e=g);var m,v,y=2147483647,x=36,w=1,C=26,I=38,b=700,A=72,E=128,j="-",k=/^xn--/,T=/[^\x20-\x7E]/,B=/[\x2E\u3002\uFF0E\uFF61]/g,U={overflow:"Overflow: input needs wider integers to process","not-basic":"Illegal input >= 0x80 (not a basic code point)","invalid-input":"Invalid input"},S=x-w,D=Math.floor,F=String.fromCharCode;if(m={version:"1.3.2",ucs2:{decode:r,encode:i},decode:l,encode:d,toASCII:s,toUnicode:f},"function"==typeof define&&"object"==typeof define.amd&&define.amd)define("punycode",function(){return m});else if(p&&h)if(module.exports==p)h.exports=m;else for(v in m)m.hasOwnProperty(v)&&(p[v]=m[v]);else e.punycode=m}(this),function(e,n,t,o){function r(e){return encodeURIComponent(e).replace(/['()_*]/g,function(e){return"%"+e.charCodeAt().toString(16)})}function i(e,n){return null==n?e.innerText||e.textContent:(null!=e.innerText&&(e.innerText=n),void(null!=e.textContent&&(e.textContent=n)))}function c(){var e,n,c;this==u?(e=a,n=i(u),c=t(n.toLowerCase()),i(e,c),l.href="#"+r(n)):(e=u,n=i(a),/^[a-zA-Z0-9-\.]*$/.test(n)?(c=o(n),l.href="#"+encodeURIComponent(c),i(e,c),this.className=null,d.style.display="none"):(this.className="fail",d.style.display="block"))}var u=n.getElementById("decoded"),a=n.getElementById("encoded"),l=n.getElementById("permalink"),d=n.getElementById("invalid"),f=function(){var n,t,o=new Date;try{return(n=e.localStorage).setItem(o,o),t=n.getItem(o)==o,n.removeItem(o),t&&n}catch(r){}}();u.onkeyup=a.onkeyup=c,u.oninput=a.oninput=function(){u.onkeyup=a.onkeyup=null,c.call(this)},u.onpaste=a.onpaste=function(e){e.preventDefault();var t=e.clipboardData.getData("text/plain").trim();n.execCommand("insertText",!1,t)},f&&(f.decoded&&i(u,f.decoded),f.encoded&&i(a,f.encoded),c()),u.focus(),u.onkeyup.call(u),e.onhashchange=function(){i(u,decodeURIComponent(location.hash.slice(1))),c.call(u)},location.hash&&e.onhashchange()}(this,document,punycode.toASCII,punycode.toUnicode),window._gaq=[["_setAccount","UA-6065217-60"],["_trackPageview"]],function(e,n){var t=e.createElement(n),o=e.getElementsByTagName(n)[0];t.src="//www.google-analytics.com/ga.js",o.parentNode.insertBefore(t,o)}(document,"script")</script>
+<!------------found at https://mothereff.in/punycode-------------------->				
+            </div>
+            
+            <div class="col-md-2">
+
+            </div>
+            
+        </div>                       
+
+	<footer>
+    	<h3>PunyCode.js</h3>
+    </footer>
+
+	</div>
+
+</body>
+</html>

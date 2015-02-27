@@ -1,0 +1,65 @@
+/* CSS Document */
+/*Fonts: http://www.fontsquirrel.com/   http://fortawesome.github.io/Font-Awesome/*/
+/*Images: http://subtlepatterns.com/ */
+
+body{
+background-image: url(../images/bg2.png);
+background-attachment: fixed;	
+}
+.container{
+border: 1px solid black;
+background-color: #fff;	
+background-image: url(../images/page_bg2.png);
+}
+
+img{
+width: 100%;	
+}
+
+footer{
+width: 100%;
+background-color: #000;
+height: 100px;
+margin-top: 20px;
+color: #fff;
+text-align: center;	
+padding-top: 20px;
+}
+
+h1, h3{
+font-family: 'Origicide';
+color: #a99877!important;	
+}
+
+p{
+    font-family: 'Amaranth-Regular';
+	font-size: 1.3em;	
+	color: #a99877;
+}
+
+.jumbotron{
+background-image: url(../images/bg.png);
+border: 2px solid black;	
+}
+
+a{
+text-decoration: none;
+color: #fff;	
+}
+
+@font-face {
+    font-family: 'Origicide';
+    src: url('../fonts/Origicide.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+@font-face {
+    font-family: 'Amaranth-Regular';
+    src: url('../fonts/Amaranth-Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+
+}
