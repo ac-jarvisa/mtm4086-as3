@@ -1,0 +1,146 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*****************************************
+    DEFAULTS
+******************************************/
+html{width:100%;
+     height:100%;}
+body{
+	font-family: 'Open Sans', sans-serif;
+	color:#d7daa8;
+    background-color:#221f1c;
+	width:100%;
+	height:100%;
+	
+	
+	
+}
+.container{margin:0 auto;
+           background-image:url("../images/bg2.png");
+	       background-repeat:no-repeat;
+		   width:100%;
+		   margin-left:-25px;
+		   padding-bottom:150px;}
+ h1{ 
+	font-family: 'Overlock', cursive;
+	font-size:5.2em;
+	font-weight:bold;
+	font-style:italic;
+	text-transform:lowercase;
+	color:#d7daa8;
+	text-align:right;
+	padding-top:40px;
+	
+	margin-right:60px;
+}
+
+h2{
+	color:#ccac4b; /*yellow*/
+	font-size:3em;
+	font-weight:400;
+	font-family:'Overlock', cursive;
+}
+
+h3{
+	
+	font-size:2em;
+	line-height:1.5em;
+}
+.changeMe{
+	font-family:'Overlock', cursive;
+	font-style:italic;
+	font-weight:bold;
+	
+}
+
+
+h4{ 
+     
+     font-size:3em;
+	 line-height:1.5;
+	 color:#d7daa8;
+	 
+	 
+}
+
+
+.overlock{
+	font-family:'Overlock', cursive;
+	
+}
+
+.yellow{
+	color:#ccac4b; /*yellow*/
+	
+}
+/************************************************
+   content
+*************************************************/
+
+header{
+	background-color:#6e6d55;
+	width:110%;
+	height:50px;
+	margin:-20px;
+	padding:0;
+}
+section{width:100%;
+      
+}
+/***********************************************
+background image divs
+***********************************************/
+
+#first{ 
+	background-image:url("../images/bg1.png");
+	width:1153px;
+	height:720px;
+	
+}
+#second{ 
+	
+	width:1153px;
+	
+	
+}
+/***********************************************
+ PRETTIFY
+ **********************************************/
+pre.prettyprint{background-color:#433f3b;
+                padding-left:15px;
+				padding-right:15px;
+				padding-top:15px;
+				margin-top:10px;}
+section{  width:550px;
+          margin-left:47%;}
+pre .com{
+	color:#d7daa8;/*creamy*/
+}
+pre .typ{
+	color:#A3CEAF;/*green*/
+}
+pre .str{
+	color:#c7816c;/*pink*/
+}
+pre .pln{
+	color:#e4e6c8;/*grey*/
+}
+code{
+	font-family:'Open Sans', sans-serif;
+	
+}
+/*********************************************
+     FOOTER
+*********************************************/
+footer{
+	background-color:#6e6d55;
+	width:130%;
+	height:50px;
+	margin:-20px;
+	padding:0;
+	position:relative; 
+	bottom:0;
+	
+	
+}
