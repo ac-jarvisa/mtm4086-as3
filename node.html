@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <title>Node Faker</title>
+		<link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+		<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+		<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+        <script src="faker/faker.js" type="text/javascript"></script>
+    </head>
+    
+    <body> 
+		<div class="container-fluid">
+		<h1 class="jumbotron" style="color: white; background-color: #b20000; font-family: 'Pacifico', cursive; font-size: 60px;">Welcome to Faker</h1>
+			<div class="row">
+				<div class="col-xs-6" style="padding-bottom:60px;">
+					<h2 style="font-family: 'Pacifico', cursive; font-size: 30px;">About</h2>
+					<p>The Faker node is a module that allows users to get fake information generated to them with the click to a button. It includes a wide variety of information, for example:</p>
+					<ul style="float:left;" class="col-xs-6">
+						<li>Name</li>
+						<li>Address</li>
+						<li>Internet</li>
+						<li>Phone Number</li>
+						<li>Image</li>
+					</ul>
+					<ul style="float:left;" class="col-xs-6">
+						<li>Company</li>
+						<li>Lorem Ipsum </li>
+						<li>Helpers</li>
+						<li>Date</li>
+						<br>
+					</ul>
+					<p>Plus all of these have sub info so if you wanted just a first name field and a last name field you would use firstName and lastName. Another example is you can go into more details about your address by getting a zip code, city, street, province and country.</p>
+					<h2 style="font-family: 'Pacifico', cursive; font-size: 30px;">Uses</h2>
+					<p>People could use this for when they are creating fake users (ex: user personas) and need information that looks and sounds real. You can also use it to create a fake identity to get into those R rated movies.</p>
+					<h2 style="font-family: 'Pacifico', cursive; font-size: 30px;">Installation</h2>
+					<p>Faker can be installed using NPM, just like most Node modules.</p>
+					<kbd>$ Npm install faker</kbd>
+					<h2 style="font-family: 'Pacifico', cursive; font-size: 30px;">How To Use</h2>
+					<p>You implement it by doing something like this. (Really we don't know how.)</p>
+					<kbd>var faker = require("faker");</kbd> <br> <kbd>var randomName = faker.Name.findName();</kbd>
+					
+
+
+					
+				</div>
+				<div class="col-xs-6">
+					<form method="POST">
+						<h2 style="float: left; font-family: 'Pacifico', cursive; font-size: 30px;">Generate your fake data here...</h2>
+						
+						<br>
+						<br>
+						<label for="1" style="width:100%;">Name:</label><input type="text" name="1" id="1" style="width:100%; margin-bottom: 15px;">
+						<br>
+						<label for="2" style="width:100%;">Address:</label><input type="text" name="2" id="2" style="width:100%; margin-bottom: 15px;">
+						<br>
+						<label for="3" style="width:100%;">Phone Number:</label><input type="text" name="3" id="3" style="width:100%; margin-bottom: 15px;">
+						<br>
+						<label for="4" style="width:100%;">Email:</label><input type="text" name="4" id="4" style="width:100%; margin-bottom: 15px;">
+						<br>
+						<label for="5" style="width:100%;">Company:</label><input type="text" name="5" id="5" style="width:100%; margin-bottom: 15px;">
+						<br>
+						<label for="6" style="width:100%;">Image:</label><img src="" id="6">
+						<input type="submit" value="Generate!" class="col-xs-9" style="float: right; height: 130px; font-size: 20px; background-color: #ffcc99; border: none; border: 4px solid #ffb266;">
+					</form>
+				</div>
+			</div>
+		</div>
+    </body>
+	<script src="main.js" type="text/javascript"></script>
+</html>
