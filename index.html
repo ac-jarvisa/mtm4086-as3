@@ -1,0 +1,261 @@
+<!doctype html>
+
+<html lang="en-ca">
+
+<head>
+	<meta charset="utf-8">
+	<title>PDF Kit: Presented By Kojo</title>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+	
+	<!-- Mine -->
+	<link rel="stylesheet" href="styles/style.css">
+</head>
+
+<body> 
+
+	<div class="page-header">
+				<div class="row">
+					
+					<div class="col-md-8">
+                    	<h1>PDF Kit</h1>
+                        <p>Revolutionizing PDF writing in surprisingly tedious ways since July 10th, 2011</p>
+					</div>
+					
+					<div class="col-md-4">
+						You Git To Teach, Don't-cha Node?<br>
+						Kwadjo Odapagyan<br>
+						Web Scripting II<br>
+						MTM-4086<br>
+						2015-2-27
+					</div>
+					
+					
+				</div>
+	</div>
+	
+	<div class="container">	
+				<div class="row">
+				
+					<div class="col-md-4">
+                    	<a href="http://pdfkit.org/demo/browser.html"><img src="images/screen1.jpg" alt="screencap of pdfkit"></a>
+                        <h4>Live Demo (Above)</h4>
+					</div>
+					
+					<div class="col-md-8">
+						<h2>Introduction:</h2>
+                        <p>
+							A library for node, Pdfkit allows the use of server-side generation of complex, multi-page, printable pdf documents.  The API can be used in javascript or CoffeeScript, to varying degrees of success (which you will witness throughout this tutorial).<br><br>
+The image left will take you to an in-browser, interactive pdf generator.
+
+						</p>
+					</div>
+				</div>
+                
+                <div class="row">
+				
+					<div class="col-md-8">
+                    	<h2>Getting Started:</h2>
+                        <p>To get started you must first install pdfkit in node by typing the code snippet to the right into npm. Once you have installed the module, create a file to work from. 
+						
+						<br><br>I will call mine thisFile.js</p>
+					</div>
+					
+					<div class="col-md-4 nodey">
+						<div id = "nodeBox">
+                        	<h2>node</h2>
+                            <p>npm install pdfkit</p>
+                        </div>
+					</div>
+				</div>
+                
+                <div class="row">
+				
+					<div class="col-md-8">
+                    	<div id = "codebox">
+                        	<h2>--step1</h2>
+                            <p>
+								var PDF = require('pdfkit');            <span class="comment">//including the pdfkit module</span><br>
+							var fs = require('fs');<br>
+							<br>
+							<br>
+							doc.pipe(fs.createWriteStream('presentation.pdf')); <span class="comment">//set output path for pdf</span><br>
+							<br>
+							<span class="comment">//Content can be added here</span>
+							<br>
+							<br>
+							doc.end(); <span class="comment">//we end the document writing.</span>
+							</p>
+                        </div>
+					</div>
+					
+					<div class="col-md-4">
+						<h2>Basic Structure:</h2>
+                        <p>
+							Before we begin writing content to put in the pdf, we must first add the necessary structure to our pdfKit file. We add the 'require' for the pdfkit module and follow it by declaring the path where the pdf will be saved.<br><br>
+							
+							At the bottom of our document we not where the document ends.
+						</p>
+					</div>
+				</div>
+                
+                
+                <div class="row">
+				
+					<div class="col-md-4">
+                    	<h2>Adding Text:</h2>
+                        <p>
+							Pdfkit makes provision for adding and styleing text in a number of ways. The best way to add text is to create a string variable in which your text is housed. You then inject that variable into your pdf with the following code.<br><br>
+							Assuming this code worked right you would get a paragraph outputted, over a 3 column span.
+						</p>
+					</div>
+					
+					<div class="col-md-8">
+						<div id = "codebox">
+                        	<h2>--step2</h2>
+                            <p>
+								
+								<span class="comment">//put text in a variable</span><br>
+								var text = 'Cookie jelly beans chocolate chocolate soufflé cookie carrot cake sugar plum pie. Sesame snaps macaroon cookie jujubes macaroon pie jelly beans bonbon candy. Ice cream halvah topping muffin chocolate bar bonbon tiramisu chocolate cake wafer. Jujubes cupcake toffee dragée liquorice pastry gingerbread. ';<br><br>
+								
+								doc.text(text, {<br>	<span class="comment">//style variable text</span><br>
+									columns: 3 			<span class="comment">//set columns</span><br>
+									columnGap: 20,		<span class="comment">//set column margin</span><br>
+									height: 500,		<span class="comment">//set hight of columns</span><br>
+									width: 300,			<span class="comment">//set width of columns</span><br>
+									align: 'left'		<span class="comment">//set alignment of columns</span><br>
+									});
+							</p>
+                        </div>
+					</div>
+				</div>
+                
+				
+				<div class="row">
+                <div class="col-md-8">
+                    	<div id = "codebox">
+                        	<h2>--step3</h2>
+                            <p>
+								doc.poly()<br>
+									&nbsp&nbsp&nbsp&nbsp&nbsp..moveTo(50, 100)			<span class="comment">//specify line segments for polygon</span><br>
+									&nbsp&nbsp&nbsp&nbsp&nbsp..lineTo(140, 450)			<span class="comment"></span><br>
+									&nbsp&nbsp&nbsp&nbsp&nbsp..lineTo(150, 2150)		<span class="comment"></span><br>
+									&nbsp&nbsp&nbsp&nbsp&nbsp..fill("#B0EAAD");			<span class="comment">//fill color</span><br>
+							</p>
+                        </div>
+					</div>
+					
+					<div class="col-md-4">
+						<h2>Adding Graphics:</h2>
+                        <p>
+							Pdfkit allows the creation of shapes and graphics (similar to css shapes) through the input of various presets. You can also create your own shapes by declaring there vertices and line segments, and then their fill color...at least in theory.
+						</p>
+					</div>
+				</div>
+                
+				
+				<div class="row">
+                <div class="col-md-4">
+                    	<h2>Adding Images:</h2>
+                        <p>
+							Adding images is very easy to do in pdfKit (according to the documentation). Just a few simple lines of code and ideally, you will have set an image that can be resized extremely simply...ideally...probably...
+						</p>
+					</div>
+					
+					<div class="col-md-8">
+						<div id = "codebox">
+                        	<h2>--step4</h2>
+                            <p>
+							doc.image('images/image.jpeg', 0, 15, width: 500) <span class="comment">//insert image path, position and specify width</span><br>
+								&nbsp&nbsp&nbsp&nbsp&nbsp.text('Proprotional to width', 0, 0) <span class="comment">//scale image</span><br><br>
+			
+							</p>
+                        </div>
+					</div>
+				</div>
+                
+				<div class="row">
+                <div class="col-md-8">
+                    	<h2>Finishing Up:</h2>
+                        <p>To run the application we must go back to npm. With the file path specified in the code, all we have to do is sun the command to the right, and, assuming, everything is correct (which it isn't) you will get a pdf outputted.</p>
+					</div>
+					
+					<div class="col-md-4 nodey">
+						<div id = "nodeBox">
+                        	<h2>node</h2>
+                            <p>node thisFile.js</p>
+                        </div>
+					</div>
+				</div>
+                
+				<div class="row">
+                <div class="col-md-6">
+                    	<h2>Output:</h2>
+                        <p>An error..for some reason. Ordinarily I would fix this error, but I honestly cannot figure out what is going wrong. I am following the guides and nothing is working. The syntax in the guides appears to be different from the syntax accepted in the app...Ah well.<br><br>
+						
+						However, Thank you for joining me on this entirely useless, and time consuming tutorial. We'll be back with more after the break.
+
+						For more information on the app try <a href="http://pdfkit.org/">Here</a></p>
+					</div>
+					
+					<div class="col-md-6">
+						<div id = "codebox">
+                        	<h2>--complete code</h2>
+                            <p>
+									var PDF = require('pdfkit');            <span class="comment">//including the pdfkit module</span><br>
+							var fs = require('fs');<br>
+							<br>
+							<br>
+							doc.pipe(fs.createWriteStream('presentation.pdf')); <span class="comment">//set output path for pdf</span><br>
+							<br>
+							<span class="comment">//Content can be added here</span>
+							
+								doc.image('images/image.jpeg', 0, 15, width: 500) <span class="comment">//insert image path, position and specify width</span><br>
+								&nbsp&nbsp&nbsp&nbsp&nbsp.text('Proprotional to width', 0, 0) <span class="comment">//scale image</span><br><br>
+								
+								doc.poly()<br>
+									&nbsp&nbsp&nbsp&nbsp&nbsp.moveTo(50, 100)			<span class="comment">//specify line segments for polygon</span><br>
+									&nbsp&nbsp&nbsp&nbsp&nbsp.lineTo(140, 450)			<span class="comment"></span><br>
+									&nbsp&nbsp&nbsp&nbsp&nbsp.lineTo(150, 2150)		<span class="comment"></span><br>
+									&nbsp&nbsp&nbsp&nbsp&nbsp.fill("#B0EAAD");			<span class="comment">//fill color</span><br><br>
+								
+								<span class="comment">//put text in a variable</span><br>
+								var text = 'Cookie jelly beans chocolate chocolate soufflé cookie carrot cake sugar plum pie. Sesame snaps macaroon cookie jujubes macaroon pie jelly beans bonbon candy. Ice cream halvah topping muffin chocolate bar bonbon tiramisu chocolate cake wafer. Jujubes cupcake toffee dragée liquorice pastry gingerbread. ';<br><br>
+								
+								doc.text(text, {<br>	<span class="comment">//style variable text</span><br>
+									columns: 3 			<span class="comment">//set columns</span><br>
+									columnGap: 20,		<span class="comment">//set column margin</span><br>
+									height: 500,		<span class="comment">//set hight of columns</span><br>
+									width: 300,			<span class="comment">//set width of columns</span><br>
+									align: 'left'		<span class="comment">//set alignment of columns</span><br>
+									});
+									
+								<br>
+							<br>
+							doc.end(); <span class="comment">//we end the document writing.</span>
+							</p>
+							</p>
+                        </div>
+					</div>
+				</div>
+    </div>
+				
+
+				
+				<!-----------------------------------------FOOTER------------------------------------------------------>
+				<div class="footer">
+					
+				</div>
+	</div>
+	
+	
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+	<script src="/js/bootstrap-paginator.min.js"></script>
+</body
+
+></html>

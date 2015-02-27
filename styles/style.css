@@ -1,0 +1,132 @@
+body	{
+	background:	url("../images/texture.png");
+}
+
+.container{
+	background:		white;
+	width:			80%;
+	margin:			0 auto;
+}
+
+img	{
+	width:			90%;
+	margin:			5%;
+}
+
+.comment	{
+	color:			#D9ADE8;
+}
+
+.new	{
+	color:			#E47B19;
+}
+
+.page-header{
+	width:			100%;
+	min-height:		350px;
+	background:		#B0EAAD;
+	margin-top:		0;
+	margin-bottom:	0;
+	padding:		1em 10%;
+}
+
+.page-header .col-md-4{
+	background:		#B0EAAD;
+	font-size:		0.9em;
+	color:			white;
+	text-align:		right;
+}
+
+.page-header .col-md-4 p{
+	color:			white;
+	font-size:		1.3em;
+}
+
+.page-header .col-md-8 p{
+	font-size:		2.7em;
+}
+
+.page-header .col-md-8 h1{
+	font-size:		7em;
+}
+
+.row	{
+	min-height:		250px;
+}
+
+.col-md-4	{
+	background:		#EBEBEB;
+	min-height:		250px;	
+}
+
+.col-md-4 p	{
+	font-size:		1.7em;
+}
+
+.col-md-8	p {
+	font-size:		1.7em;
+}
+
+.col-md-6	p {
+	font-size:		1.7em;
+}
+
+
+#nodeBox	{
+	width:			100%;
+	margin:			5em 0% 0;
+	background:		#545454;
+}
+
+#nodeBox p	{
+	background:		#545454;
+	color:			#E47B19;
+	min-height: 3em;
+	font-size: 1.3em;
+	padding: 1em;
+}
+
+
+#nodeBox h2	{
+
+	margin: 0;
+	background:		#B0EAAD;
+	width:			100%;
+	line-height:	1.2em;
+	color:			white;
+}
+
+#codebox	{
+	width:			90%;
+	margin:			3em 5% 3;
+	background:		#545454;
+
+}
+
+#codebox p	{
+	background:		#545454;
+	min-height: 3em;
+	font-size: 1.3em;
+	padding: 1em;
+	color:			#D4FFE0;
+}
+
+#codebox h2	{
+	background:		#91C28F;
+	width:			100%;
+	line-height:	1.2em;
+	color:			white;
+}
+
+.nodey	{
+	background:		white;
+}
+
+.footer	{
+	width:			100%;
+	text-align:		center;
+	background:		#B0EAAD;
+	color:			white;
+	font-size:		1.5em;
+	height:	1.45em;
+}
