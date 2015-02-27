@@ -1,0 +1,74 @@
+/*****FONTS******/
+@import url(http://fonts.googleapis.com/css?family=Noto+Sans|Oswald);
+
+/*****MAIN*****/
+body{
+	font-family: 'Noto Sans', arial, sans-serif;
+	overflow-x: hidden;
+	font-size: 16px;
+}
+h1, h2, h3, h4{
+	font-family: 'Oswald', impact, sans-serif;
+}
+h2{
+	font-size: 3em;
+}
+h3{
+	font-size: 2em;
+}
+h4{
+	font-size: 1.75em;
+}
+#jumboPrune{
+	background: url(../images/jumbo.jpg) no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	background-size: cover;
+	color: #fafafa;
+}
+#jumboPrune h1{
+	font-size: 10em;
+}
+#jumboPrune p{
+	line-height: 3em;
+}
+
+.col-sm-9, .col-sm-9 {
+	margin-top: 15px;
+	line-height: 1.75em;
+}
+.info{
+	margin-top: 25px;
+}
+.subject{
+	margin-bottom: 30px;
+}
+.indent{
+	margin-left: 25px;
+	font-family: courier, 'Noto Sans', arial, sans-serif;
+	font-weight: bold;
+}
+.example{
+	padding-left: 55px;
+}
+.imgexample{
+	font-family: courier, 'Noto Sans', arial, sans-serif;
+	text-align: center;
+	margin-bottom: 15px;
+	font-size: 1.25em;
+	font-weight: bold;
+}
+.footer{
+	text-align: center;
+	background: #222;
+	padding: 10px;
+	color: #fafafa;
+	font-size: 0.8em;
+}
+.final{
+	text-align: center;
+}
+/*****BOOTSTRAP OVERRIDES****/
+.navbar{margin-bottom:0; border-radius:0;}
+.container-fluid .jumbotron{border-radius:0;}
+.container-fluid{padding:0;}
