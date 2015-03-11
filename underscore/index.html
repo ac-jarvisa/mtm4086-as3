@@ -1,0 +1,192 @@
+
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>You Git To Teach, Don't-cha Node?</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+<link href="css/index.css" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+
+</head>
+
+
+
+<body>
+	<div class="container"> 
+  
+<!--Navigation-->
+
+  <nav class="navbar navbar-fixed-top navbar-default">
+  <div class="container-fluid">
+
+    <!-- Brand and toggle get grouped for better mobile display -->
+
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">You Git To Teach, Don't-cha Node?</a>
+    </div>
+
+    <div class="navbar-header mySearch">
+      <a class="navbar-brand myBrand" href="#">
+        <img alt="Brand" src="media/search.png">
+      </a>
+    </div>
+      
+  </div><!-- /.container-fluid -->
+</nav>
+
+<h2>Underscore.string</h2>
+<p>This is a very good solution for string manipulation operations. This was originally started as an Underscore.js extension but is now a full standalone library currently at Version 3.0.3.</p>
+<p>This Module is owned and maintained by Esa-Matti Suuronen</p>
+<p>For those of us familiar with PHP know there are tons of string manipulation operations, but I have focused on some that may be used more frequently when developing a Node js application</p>
+
+ 
+<a href="https://www.dropbox.com/s/alf3q7mhch6apm4/myapp.zip?dl=0"><button type="button" class="btn btn-default btn-lg">
+  <span class="glyphicon glyphicon-save" aria-hidden="true"></span> Download Source File
+</button></a>
+
+<h2>Install</h2>
+<p>Install from npm</p>
+<pre>
+<code>
+
+npm install underscore.string
+
+sudo npm install underscore.string // Mac Users
+
+</code>
+
+</pre>
+
+
+<p>Require individual functions<p>
+
+<pre>
+<code>
+
+//using sluggify *Step 1*
+
+var slugify = require("underscore.string/slugify"); 
+
+//using sluggify *Step 2*
+
+console.log(  slugify("Hello world!")  );
+
+// => Hello-world!
+</code>
+
+</pre>
+
+<p>or load the full library to enable chaining</p>
+<h4>chop(string, step) => array</h4>
+<pre>
+<code>
+//load the full library
+
+var s = require("underscore.string");
+
+// Chaining
+
+console.log(  s("toluwalope").capitalize().chop(2)  );
+
+//=> [To,lu,wa,lo,pe]
+
+
+</code>
+
+</pre>
+
+<h4>capitalize(string) => string</h4>
+
+<pre>
+<code>
+console.log(  s("tolu rocks").capitalize().value()  );
+
+//=> Tolu rocks
+</code>
+
+</pre>
+
+<h4>isBlank(string) => boolean</h4>
+
+<pre>
+<code>
+console.log(  s("").isBlank()   );
+
+//=> True
+</code>
+
+</pre>
+
+<h4>join(separator, ...strings) => string</h4>
+
+<pre>
+<code>
+console.log(  s("Pneumonoultramicroscopicsilicovolcanoconiosis").chop(8).join("_")  );
+
+//=> Pneumono_ultramic_roscopic_silicovo_lcanocon_iosis
+</code>
+
+</pre>
+
+<h4>reverse(string) => string</h4>
+
+<pre>
+<code>
+console.log(  s("Love").reverse().value()  );
+
+//=> evoL
+</code>
+
+</pre>
+
+<h4>humanize(string) => string</h4>
+
+<pre>
+<code>
+console.log(  s("  I dont-pop_molly I_Rock-tomFord  ").humanize().value() );
+
+//=> I dont pop molly i rock tom ford
+
+</code>
+
+</pre>
+
+<a href="https://www.dropbox.com/s/alf3q7mhch6apm4/myapp.zip?dl=0"><button type="button" class="btn btn-default btn-lg">
+  <span class="glyphicon glyphicon-save" aria-hidden="true"></span> Download Source File
+</button></a>
+
+<hr>
+
+
+
+
+
+
+
+
+
+     
+     <footer>
+
+       
+
+     
+        	
+        	
+        </footer>
+    
+    </div>
+    
+
+</body>
+</html>

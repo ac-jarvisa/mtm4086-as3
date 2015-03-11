@@ -1,0 +1,115 @@
+<!doctype html>
+
+<html lang="en-ca">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="author" content="Nick Belland">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+	<title>PhoneGap | Cordova</title>
+</head>
+
+<body>
+	<div class="container-fluid">
+		<div class="row backgroundBlue">
+			<div class="col-md-1"></div>
+			<div class="col-md-8">
+				<h1 class="big">PhoneGap</h1> 
+				<h1 class="small"> - Command Line Interface Tutorial</h1>
+			</div>
+			<div class="col-md-1"></div>
+	    </div>
+		<div class="row backgroundWhite">
+			<div class="col-md-2"></div>
+			<div class="col-md-8">
+				<h2 class="what">What is PhoneGap?</h2>
+				<h3>PhoneGap is an open source solution for building cross-platform mobile apps with standard web languages like HTML, javaScript, and css.  It is a mobile application development framework that is based upon the open source Apache Cordova project.</h3>
+				<h3>Using the PhoneGap API you are able to access multiple of the features of a mobile device.  A couple of these are Geolocation, Camera, Notifications(Vibrate, Sound, Alert), and many more.  You can view more about this plugins at <a href="http://docs.phonegap.com/en/4.0.0/cordova_plugins_pluginapis.md.html#Plugin%20APIs">this link</a> if you are interested.  For this example, we are going to simply talk about how to turn your web files into a mobile application, specifically android.</h3>
+			</div>
+			<div class="col-md-2"></div>
+	    </div>
+	    <div class="row background">
+			<div class="col-md-2"></div>
+			<div class="col-md-8">
+				<h2>Steps for building an android application on a windows platform</h2>
+				<ul>
+					<li>Install NODEJS - <a href="http://nodejs.org/" target="_blank">Click Here</a></li>
+					<li>Install Android SDK Manager - <a href="http://developer.android.com/sdk/index.html" target="_blank">Click Here</a></li>
+					<li>Install Ant - <a href="http://ant.apache.org/bindownload.cgi" target="_blank">Click Here</a></li>
+					<li>Open up your command prompt and install phonegap
+						<ul>
+							<li><span>npm install -g phonegap</span></li>
+						</ul>
+					</li>
+					<li>Create a directory to hold the files
+						<ul>
+							<li><span>phonegap create test com.anything.test Test</span></li>
+							<li>"test" is the name of the directory you are about to create</li>
+							<li>"com.anything.test" is a reverse domain (basically a unique id)</li>
+							<li>"anything" is usually the domain of the app you are building</li>
+						</ul>
+					</li>
+					<li>Change into the new directory you just created
+						<ul>
+							<li><span>cd test</span></li>
+						</ul>
+					</li>
+					<li>In the file explorer go into the "www" folder and add your source files(html, css, js)</li>
+					<li>Set the android path pt 1
+						<ul>
+							<li><span>set ANDROID_HOME=(your android sdk location)</span></li>
+							<li>For example, my path was - <span>set ANDROID_HOME=C:\Users\Nick\AppData\Local\Android\sdk</span></li>
+						</ul>
+					</li>
+					<li>Set the android path pt 2
+						<ul>
+							<li><span>set PATH=%PATH%;%ANDROID_HOME%\tools;%ANDROID_HOME%\platform-tools</span></li>
+						</ul>
+					</li>
+					<li>Add the mobile application platforms
+						<ul>
+							<li><span>phonegap platform add android</span></li>
+						</ul>
+					</li>
+					<li>set the ant path pt 1
+						<ul>
+							<li><span>set ANT_HOME=(your ant location)</span></li>
+							<li>For example, my path was - <span>set ANT_HOME=C:\ant</span></li>
+						</ul>
+					</li>
+					<li>Set the ant path pt 2
+						<ul>
+							<li><span>set PATH=%PATH%;C:\ant\bin</span></li>
+						</ul>
+					</li>
+					<li>Build the application
+						<ul>
+							<li><span>phonegap build android</span></li>
+						</ul>
+					</li>
+					<li>View the app through your SDK
+						<ul>
+							<li><span>phonegap emulate android</span></li>
+						</ul>
+					</li>
+					<li> Send the application to your mobile device
+						<ul>
+							<li><span>phonegap serve</span></li>
+							<li>Install the phonegap developer application on your android device and match the connection.  This allows you to see changes live on your mobile device</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+			<div class="col-md-2"></div>
+	    </div>
+	    <div class="row backgroundBlue">
+	    	<p class="copyright">This amazing tutorial was created by - Nick Belland<p>
+	    </div>
+	</div>
+
+</body>
+
+</html>

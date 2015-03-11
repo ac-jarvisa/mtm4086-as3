@@ -1,0 +1,163 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>xml2js</title>
+    <link type="text/css" href="styles/reset.css" rel="stylesheet">
+    <link type="text/css" href="styles/main.css" rel="stylesheet">
+    <script src="scripts/jquery-1.11.1.min.js"></script>
+    <script src="scripts/jquery.sticky-kit.js"></script>
+    <script src="scripts/main.js"></script>
+</head>
+
+<body>
+	<header>
+    	<h1>xml2js</h1>
+        <h2>Christian<br>Griffin</h2>
+    </header>
+	<div id="container">
+        <div id="contentArea">
+        	<aside>
+            	<ul>
+                	<li><a href="#basics">Basics</a></li>
+                    <li><a href="#installation">Installation</a></li>
+                    <li><a href="#xml-structure">XML Structure</a></li>
+                    <li><a href="#js-file">JS File</a></li>
+                    <li><a href="#results">Results</a></li>
+                </ul>
+            </aside>
+        	<section>
+            	<article id="basics">
+        			<h2>Basics</h2>
+                    <p>xml2js is, simply put, an XML parser for Node.js. Using Node's File System module ('fs'), you can read an XML document, then parse it with xml2js. The result can converted to JSON or other formats.</p>
+                </article>
+                
+                
+                <article id="installation">
+        			<h2>Installation</h2>
+                    <p>xml2js can be installed like most other Node modules, using NPM.</p>
+                    <blockquote>
+                        <p>$ npm install xml2js</p>
+                    </blockquote>
+            	</article>
+                
+                
+                <article id="xml-structure">
+        			<h2>XML Structure</h2>
+                    <p>First, we'll create a .xml document. To make sure we have enough information to work with, we'll fill in three players and their stats for an imaginary game.</p>
+                    <blockquote>
+                        <p>
+                        &lt;root&gt;<br>
+                        <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;player-1&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;name&gt;PooBooGoo&lt;/name&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;health&gt;100&lt;/health&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;attack&gt;50&lt;/attack&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;awesomeness&gt;75&lt;/awesomeness&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/player-1&gt;<br>
+                        <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;player-2&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;name&gt;JamTrams&lt;/name&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;health&gt;75&lt;/health&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;attack&gt;80&lt;/attack&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;awesomeness&gt;95&lt;/awesomeness&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/player-2&gt;<br>
+                        <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;player-3&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;name&gt;The Finishist&lt;/name&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;health&gt;150&lt;/health&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;attack&gt;200&lt;/attack&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;awesomeness&gt;560&lt;/awesomeness&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/player-3&gt;<br>
+                        <br>
+                        &lt;/root&gt;
+                        </p>
+                    </blockquote>
+            	</article>
+                
+                
+                <article id="js-file">
+        			<h2>JS File</h2>
+                    <p>We can now begin writing the .js file. In this case, we'll call it 'server.js'. In this case, we want to convert our XML structure to a JSON-readable string and display it on our web page.</p><br>
+                    <br>
+                    <p>We'll begin by including all the modules we'll need, defining a variable we'll use later, and creating a new xml2js parser:</p>
+                    <blockquote>
+                        	<p>
+                            	var http = require('http');<br>
+                                var fs = require ('fs');<br>
+                                var xml2js = require ('xml2js');<br>
+                                <br>
+                                var charInfo;<br>
+                                <br>
+                                var parser = new xml2js.Parser();
+                            </p>
+                    </blockquote>
+                    <p>We'll use the variable 'charInfo' to hold our JSON array later.</p><br>
+                    <br>
+                    <p>At this point, we're ready to use Node's File System module to read the xml file we created. Then we'll use the parser we created to generate a parsed result, and finally we'll use the JSON.stringify function to turn that result into a JSON-readable string.</p>
+                    <blockquote>
+                        	<p>
+                            	fs.readFile(__dirname + '/info.xml', function(err, data){<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;parser.parseString(data, function(err, result){<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;charInfo = (JSON.stringify(result));<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});<br>
+                                });
+                            </p>
+                    </blockquote>
+                    <p>All that's left to do is declare the server so that Node will actually display our page on localhost. We'll pass it the variable we declared earlier, 'charInfo', which contains the JSON-readable string we generated from our XML document.</p>
+                    <blockquote>
+                        	<p>
+                            	var server = http.createServer(function(req, res){<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;res.writeHead(200);<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;res.end(charInfo);<br>
+                                });<br>
+                                <br>
+                                server.listen(8080);
+                            </p>
+                    </blockquote>
+                    <p>Here is the .js file in its entirety:</p>
+                    <blockquote>
+                        	<p>
+                            	var http = require('http');<br>
+                                var fs = require ('fs');<br>
+                                var xml2js = require ('xml2js');<br>
+                                <br>
+                                var charInfo;<br>
+                                <br>
+                                var parser = new xml2js.Parser();<br>
+                                <br>
+                                fs.readFile(__dirname + '/info.xml', function(err, data){<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;parser.parseString(data, function(err, result){<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;charInfo = (JSON.stringify(result));<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});<br>
+                                });<br>
+                                <br>
+                                var server = http.createServer(function(req, res){<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;res.writeHead(200);<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;res.end(charInfo);<br>
+                                });<br>
+                                <br>
+                                server.listen(8080);
+                            </p>
+                    </blockquote>
+            	</article>
+                <article id="results">
+        			<h2>Results</h2>
+                    <p>At this point, all that's left to do is run our .js file with Node:</p>
+                    <blockquote>
+                        <p>$ node server.js</p>
+                    </blockquote>
+                    <p>...and navigate to localhost:8080. You should see the following:</p>
+                    <blockquote>
+                        <p>{"root":{"player-1":[{"name":["PooBooGoo"],"health":["100"],"attack":["50"],"awesomeness":["75"]}],"player-2":[{"name":["JamTrams"],"health":["75"],"attack":["80"],"awesomeness":["95"]}],"player-3":[{"name":["The Finishist"],"health":["150"],"attack":["200"],"awesomeness":["560"]}]}}</p>
+                    </blockquote>
+                    <p class="linkNote">xml2js can be found on GitHub <a href="https://github.com/Leonidas-from-XIV/node-xml2js">here</a>.</p>
+            	</article>
+            </section>
+        </div>
+    </div><!--container-->
+    <footer>
+    	<p>All content is &copy Peregrine Studios 2014 unless otherwise stated. All rights reserved.</p>
+    </footer>
+</body>
+</html>

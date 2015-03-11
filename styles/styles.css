@@ -1,0 +1,159 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+	v2.0 | 20110126
+	License: none (public domain)
+*/
+	
+	html,body,div,span,applet,object,iframe,
+	h1,h2,h3,h4,h5,h6,p,blockquote,pre,
+	a,abbr,acronym,address,big,cite,code,
+	del,dfn,em,img,ins,kbd,q,s,samp,
+	small,strike,strong,sub,sup,tt,var,
+	b,u,i,center,
+	dl,dt,dd,ol,ul,li,
+	fieldset,form,label,legend,
+	table,caption,tbody,tfoot,thead,tr,th,td,
+	article,aside,canvas,details,embed,
+	figure,figcaption,footer,header,hgroup,
+	menu,nav,output,ruby,section,summary,
+	time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline;}
+	
+	/* HTML5 display-role reset for older browsers */
+	article,aside,details,figcaption,figure,
+	footer,header,hgroup,menu,nav,section{display:block;}
+	body{line-height:1;}
+	ol,ul{list-style:none;}
+	blockquote,q{quotes:none;}
+	blockquote:before,blockquote:after,
+	q:before,q:after{content:'';content:none;}
+	table{border-collapse:collapse;border-spacing:0;}
+
+/**************** main ******************/
+.back{
+	width:100%;
+	height:100%;
+	background: -webkit-linear-gradient(rgb(210,210,210), rgb(255,255,255));
+	background: -moz-linear-gradient(rgb(210,210,210), rgb(255,255,255));
+	background: linear-gradient(rgb(210,210,210), rgb(255,255,255));
+	position:absolute;
+	top:0;
+	left:0;
+	z-index:1;
+}
+
+.container{
+	position:absolute;
+	top:0;
+	left:0;
+	z-index:2;
+	height:100%;
+	width:100%;
+	font-family: 'Cabin Sketch', cursive;
+	overflow:hidden;
+	display:-webkit-flex;
+	display:flex;
+	-webkit-flex-direction: column;
+   	flex-direction: column;
+}
+
+header{
+	/*height:20%;*/
+	height:120px;
+	background-color:rgb(168,79,20);
+	color:white;
+	font-weight:700;
+	box-shadow:0 2px 20px 2px black;
+	positon:relative;
+	z-index:10;
+	transition:all 800ms;
+}
+
+iframe{
+	width:100%;
+	/*height:80%;*/
+	flex:2;
+	transition:all 800ms;
+}
+
+header section:hover{
+	cursor:pointer;
+}
+
+h1{
+	font-size:64px;
+	padding-left:25px;
+}
+
+h2{
+	font-size:28px;
+	padding:15px 0 0 25px;
+}
+
+.main section{
+	position:relative;
+	height:100%;	
+}
+
+@media screen and (min-width:701px){
+	.main section{
+		width:60%;
+		margin:0 auto;	
+	}
+}
+
+
+
+/**************** menu ******************/
+p{
+	font-size:28px;
+	font-weight:400;
+	padding:30px 0 10px 25px;
+}
+
+ul{
+	padding-left:110px;
+	position:relative;
+	z-index:5;
+}
+
+li a{
+	font-size:20px;
+	text-decoration:none;
+	color:hsl(24,88%,25%);	
+	line-height:1.4em;
+}
+
+li:nth-of-type(2n) a{
+	color:hsl(24,88%,40%);	
+}
+
+a:hover{
+	border-bottom:1px dotted rgb(168,79,20);	
+}
+
+#cat{
+	position:absolute;
+	right:0;
+	bottom:10px;
+	z-index:2;
+	height:25vh;
+	width:100%;
+}
+
+#cat div{
+	background:url(../images/grumpy.png) no-repeat right bottom;
+	background-size:contain;
+	height:100%;
+	width:100%;
+}
+
+#cat span{
+	display:block;
+	position:absolute;
+	text-align:right;
+	padding:0 15px 10px 0;
+	font-family: 'Cabin Sketch', cursive;
+	font-weight:400;
+	bottom:-10px;
+	right:0;
+	width:600%;
+}

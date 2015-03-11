@@ -1,0 +1,39 @@
+body
+{
+    background:grey;
+    font-size:18px;
+}
+
+main
+{
+    position: absolute;
+    background: #ededed;
+    height: 100%;
+    border-right: 4px solid white;
+    border-left: 4px solid white;
+}
+
+h1
+{
+    color: #00c1ab; 
+    font-size: 45px;
+    border-bottom: 4px solid white;
+   
+}
+h3
+{   
+    margin-left: 18px;
+    margin-bottom: 40px; 
+}
+.red
+{
+    color: #af0000;  
+    padding: 20px 0;
+}
+
+.right-col
+{
+    font-size: 15px;   
+    padding: 20px 30px;
+    border: 1px solid #af0000; 
+}

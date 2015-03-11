@@ -1,0 +1,149 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Prune.js</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<link href="styles/style.css" rel="stylesheet" />
+<link rel=" shortcut icon" href="images/favicon.ico">
+</head>
+
+<body>
+<nav class="navbar navbar-inverse">
+	<div class="navbar-header">
+		<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		</button>
+		<a class="navbar-brand" href="index.html">Prune.js</a>
+	</div>
+	<div class="collapse navbar-collapse pull-right" id="navbar-collapse">
+		<ul class="nav navbar-nav">
+			<li><a href="#">Node Modules</a></li>
+			<li><a href="http://nodejs.org/" target="_blank">Node.js</a></li>
+		</ul>
+	</div>
+</nav>
+<div class="container-fluid">
+	<div class="jumbotron" id="jumboPrune">
+		<h1>Prune.js</h1>
+		<p>Presented by Tyler Klepsch and Becky Putnam</p>
+	</div>
+	<div class="row">
+		<div class="col-sm-8 col-sm-offset-2 subject">
+			<h2>What is Prune?</h2>
+			<div class="row info">
+				<div class="col-sm-3">
+					<img src="images/prune_happy.png" alt="happy prune">
+				</div>
+				<div class="col-sm-9">
+					<p>So you want to understand Prune.js. Prune is a core node module that allows you to remove extraneous modules that are not included in a package.json file. An extraneous module is a module that is not included as a dependency or devDependency in your package.json file.</p>
+					<p>The difference between the two is dependencies are required to use the app, whereas devDependencies are production modules. They are not required to run the app, but rather for testing javascript, coffeescript, etc.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-8 col-sm-offset-2 subject">
+			<h2>Why Use Prune?</h2>
+			<div class="row info">
+				<div class="col-sm-9">
+					<p> Let say you have a big project. You will have a ton of modules you are working with and within those modules are MORE modules and even MORE modules. It's module inception! This is where prune comes in handy. Prune will remove any modules that are not included as dependencies in your package.json. Thereby saving you from having to remove them yourself!</p>
+				</div>
+				<div class="col-sm-3">
+					<img src="images/prune_why.png" alt="inquisitive prune">
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-8 col-sm-offset-2 subject">
+			<h2>How to use Prune</h2>
+			<div class="row info">
+				<div class="col-sm-5">
+					<img src="images/prune_teach.png" alt="teaching prune">
+				</div>
+				<div class="col-sm-7">
+					<p>To use prune, you would use this syntax:</p>
+					<div class="indent">
+						<p>npm prune</p> 
+						<p>npm prune modulename</p>
+						<p>npm prune modeulename -production (for devDependencies)</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-8 col-sm-offset-2 subject example">
+			<h3>Example the First</h3>
+			<div class="info">
+				<p>So, we'll use phantomjs as an example. This folder is an extraneous package and isn't being used; there is no point to it. So we will use prune to get rid of it! You can do this by typing:</p>
+				<div class="row">
+					<div class="col-sm-8 col-sm-offset-2 imgexample">
+						<p>Npm prune phantomjs</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-8 col-sm-offset-2 imgexample">
+						<img src="images/prune_npm-prune-1.JPG" alt="example 1">
+					</div>
+				</div>
+				<p>Node will look at the file and realize we don't need it and get rid of the file!</p>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-8 col-sm-offset-2 subject example">
+			<h3>Example the Second</h3>
+			<div class="info">
+				<p>Let's say you aren't sure what files are extraneous. You would just type the following:</p>
+				<div class="row">
+					<div class="col-sm-8 col-sm-offset-2 imgexample">
+						<p>Npm prune</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-8 col-sm-offset-2 imgexample">
+						<img src="images/prune_npm-prune-2.JPG" alt="example 2">
+					</div>
+				</div>
+				<p>Node will go through and check all of your files in the directory and search for extraneous files. Along with phantomjs, you will see that normalize-git-url, fake, and far have also been deleted.</p>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-8 col-sm-offset-2 subject example">
+			<h3>Example the Third</h3>
+			<div class="info">
+				<p>In this final example, you will go inside one of phantomjs and go further indepth with prune.</p>
+				<p>If you go inside of phantomjs, you can also use prune here as well. But as of right now, prune won't do anything because all of the files are needed. But you will change that. Open the package.json, search for the dependencies list and remove one of the dependencies.</p>
+				<div class="row">
+					<div class="col-sm-8 col-sm-offset-2 imgexample">
+						<img src="images/ex-3-dependancies.JPG" alt="dependencies">
+					</div>
+				</div>
+				<p>If you run prune now, it will show that a file has been unbuilt and removed.</p>
+				<div class="row">
+					<div class="col-sm-8 col-sm-offset-2 imgexample">
+						<img src="images/prune_npm-prune-3.JPG" alt="example 3">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-8 col-sm-offset-2 subject example final">
+			<h4>That's Prune, Git It?</h4>
+			<img src="images/prune_exclaim.png" alt="exclaiming prune">
+		</div>
+	</div>
+	<div class="footer">
+		<p>This Material Presented by Tyler Klepsch and Becky Putnam</p>
+	</div>
+</div>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<script src="scripts/main.js"></script>
+</body>
+</html>

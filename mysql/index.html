@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>MySQL: Node.js Tutorial</title>
+	<meta name="author" content="Winnerjit Singh Rathor and Himawan Sudarso" />
+	<meta name="Resource-type" content="Document" />
+
+
+	<link rel="stylesheet" href="styles/monokai_sublime.css" />
+	<link rel="stylesheet" type="text/css" href="styles/style.css" />
+	<link rel="stylesheet" type="text/css" href="styles/jquery.mCustomScrollbar.min.css" />
+    <!-- Latest compiled and minified CSS -->
+	<link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+ 	<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+
+
+	<!-- stock images taken from: stocksnap.io, pexels.com, unsplash.com, gratisography.com/ -->
+
+	<!--[if IE]>
+		<script type="text/javascript">
+			 var console = { log: function() {} };
+		</script>
+	<![endif]-->
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	<script src="scripts/highlight.pack.js"></script>
+	<script src="scripts/jquery.mCustomScrollbar.min.js"></script>
+	<script type="text/javascript" src="scripts/custom.js"></script>
+
+</head>
+<body style=""  >
+
+<div id="fullpage" >  
+	<div class="section" id="section0">
+    	<div class="wrapper">
+        <div class="bg-text">
+            <h1>MySQL</h1>
+            <h2>Missed me?</h2>
+            <h2>I am Back in my Node Avatar.</h2><br>
+
+            <h4>       
+            Introduction </h4>
+            <p>As we all know MySql is the most popular and widely used language for interacting with the database. 
+            Then how could node be not touched by the greatness of this language?</p>
+            
+            <p>MySQL driver for node is completely written in javascript, therefore does not require any compiling.
+            <p>MySql contributors: <a href="https://github.com/felixge/node-mysql/graphs/contributors">github.com/felixge/node-mysql/graphs/contributors</a></p>
+             <h4>Installation </h4>
+            <pre><code class="javascript">$ npm install mysql</code></pre>
+            <h4>Additional packages required:</h4>
+            <ul>
+            	<li>Express (optional but prefferd)</li>
+            	<li><pre><code class="javascript">$ npm install express</code></pre></li>
+            	<li>Body parser (required to handle post request)</li>
+            	<li><pre><code class="javascript">$ npm install body-parser</code></pre></li>
+            </ul>
+    	</div>	
+    </div><!--end of section0-->
+    </div>
+	<div class="section" id="section1">
+    	<div class="wrapper">
+	        <div class="bg-text">
+	         	<h2>Basic Usage</h2>
+	         	<h4>Setup the connection key</h4>
+	         	<p>Same old stuff: host, username, password, database name</p>
+	            <pre class="code-snip">
+	            	<code class="javascript">
+//create a connection with mysql 
+//(variable include : host , user , password and database name)
+var connection = mysql.createConnection({
+	                
+	host     : 'localhost',
+	user     : 'root',
+	password :  '',
+	database : 'test',
+	                
+});
+
+	              </code>
+	          </pre> 
+	          	<h4>Handshake with the Database</h4>
+	         	<p>Recommended way : using a callback error function</p>
+	         	 <pre class="code-snip">
+	            	<code class="javascript">
+connection.connect(function(err) {
+ 
+	//if err show the error and break the function
+	if (err) throw err;
+	
+});
+
+	              </code>
+	          </pre>
+	          <p>Easy Way: without any callback function</p>
+	          <pre class="code-snip">
+	            	<code class="javascript">
+connection.connect();
+	              </code>
+	          </pre>
+	          <p>Other connection options: <a target="_blank" href="https://github.com/felixge/node-mysql/#connection-options">github.com/felixge/node-mysql/#connection-options</a></p>
+	          <h4>Executing a query</h4>
+	          <pre>
+	          	<code>
+//write the query with callback function (err: the error , rows : the actual data , fields : NO CLUE
+connection.query('SELECT * FROM users', function(err, rows, fields) {
+
+    //if err show the error and break the function
+    if (err) throw err;
+
+      //set the header as text
+      res.writeHead(200, {
+
+        'Content-type': 'text/plain'
+
+      }); 
+
+      //create an empty array
+      result=[];
+
+      //for loop for all arrays
+     for (var i in rows) {
+          
+            //pushing the values to array
+            result.push(rows[i]);
+         }
+           //write the output as json using JSON.stringify( value, replacer, space )
+          //value : The value to convert to a JSON string
+          //replacer : NO CLUE(ask Adam)
+          //space : Causes the resulting string to be pretty-printed
+          res.write(JSON.stringify(rows , null, 4));
+
+           //ending the response
+           res.end();
+
+        
+  });
+	          	</code>
+	          </pre>
+	          <h4>Ending a connection</h4>
+	          <p>Gracefully using .end()</p>
+	          <pre>
+	          	<code>
+//ending the connection
+connection.end();
+	          	</code>
+	          </pre>
+	          <p class="note-txt">Note: This will make sure all previously enqueued queries are still before sending a COM_QUIT packet to the MySQL server. If a fatal error occurs before the COM_QUIT packet can be sent, an err argument will be provided to the callback, but the connection will be terminated regardless of that.</p><br/>
+	          <p>Ugly way using .destroy()</p>
+	          <pre>
+	          	<code>
+//destroying the connection
+connection.destroy();
+	          	</code>
+	          </pre>
+	          <p class="note-txt">Note: This will cause an immediate termination of the underlying socket. Additionally destroy() guarantees that no more events or callbacks will be triggered for the connection.</p>
+	        </div>
+        </div>
+    </div>
+    
+    
+    
+    
+    <div class="section" id="section3">
+    	<div class="wrapper">
+	        <div class="bg-text">
+	         	<h2>Connection Pooling</h2>
+	         	<p>Connection Pooling is mechanism to maintain cache of database connection so that connection can be reused after releasing it. In Node mysql, we can use pooling directly to handle multiple connection and reuse the connection.</p>
+<p>The client maintains a pool of connections, so that each thread that needs to use a connection will check out one from the pool and return it back to the pool when done.</p>
+<p>If we have a multi-threaded server application expected to handle thousands of requests per second, and each thread needs to fire a query against the database. By using a connection pooling mechanism, we will have all application threads share a pool of connections. So there is less possibility of a blocking request.
+</p>
+	         	<h4>Setting up the pool</h4>
+	         	<p>Define: <span>connectionLimit</span>, host, username, password and database name</p>
+	            <pre class="code-snip">
+	            	<code class="javascript">
+//create a connection pool with mysql (variables included :connectionLimit  host , user , password and database name)
+var pool  = mysql.createPool({
+
+  connectionLimit : 10,
+  host     : 'localhost',
+  user     : 'root',
+  password :  '',
+  database : 'test',
+
+});
+	              </code>
+	          </pre> 
+	          	<h4>Getting a connection from the pool</h4>
+	         	<p>Using pool.getConnection</p>
+	         	 <pre class="code-snip">
+	            	<code class="javascript">
+//create a connection pool with mysql (variables included :connectionLimit  host , user , password and database name)
+var pool  = mysql.createPool({
+
+  connectionLimit : 10,
+  host     : 'localhost',
+  user     : 'root',
+  password :  '',
+  database : 'test',
+
+});
+//grab a connection from pool 
+pool.getConnection(function(err, connection){
+
+    if (err) throw err;
+    //get the connection ID  
+      console.log('connected as id ' + connection.threadId);
+    
+
+});
+	              </code>
+	          </pre>
+	          
+	          <h4>Releasing the connection back to pool</h4>
+	          <pre>
+	          	<code class="javascript">
+//grab a connection from pool 
+pool.getConnection(function(err, connection){
+
+        if (err) throw err;
+
+       //get the connection ID  
+      console.log('connected as id ' + connection.threadId);
+
+//execute query on that pool
+  connection.query('SELECT * FROM users', function(err, rows, fields) {
+    //if error show error
+    if (err) throw err;
+    
+      //create an empty array
+      result=[];
+
+      //for loop for all arrays
+     for (var i in rows) {
+      
+
+        //pushing the values to array
+        result.push(rows[i]);
+     
+        }
+       
+       //sending the response as JSON  
+       res.send(JSON.stringify(result));
+
+        //end the response
+         res.end();
+
+        //return the connection back to pool
+        connection.release();
+
+        //Do not call the connection here
+     });
+  });
+
+	          	</code>
+	          </pre>
+	          <p class="note-txt">Note: This will return the connection return to the pool, ready to be used again by someone else.</p>
+	          <h4>Closing all connections in pool :</h4>
+	          <pre>
+	          	<code>
+//end the pool connections
+pool.end();
+	          	</code>
+	          </pre>
+	          <p class="note-txt">Note: Once pool.end() has been called, pool.getConnection and other operations can no longer be performed</p>
+	           <h4>Getting the connection ID</h4>
+	           <p>You can get the MySQL connection ID ("thread ID") of a given connection using the threadId property.</p>
+	           <pre>
+	          	<code class="javascript">
+pool.getConnection(function(err, connection){
+  if (err) throw err;
+  //get the connection ID  
+  console.log('connected as id ' + connection.threadId);
+});
+
+	          	</code>
+	          </pre>
+	        </div>
+        </div>
+    </div>
+    <div class="section" id="section4">
+    	<div class="wrapper">
+	        <div class="bg-text">
+        	<h4>Avoiding SQL injections</h4>
+        	
+        		<p>Escaping query values provide by the user You can do so using the mysql.escape(), connection.escape() or pool.escape() methods:</p>
+				<br />
+        		<pre ><code  class=" javascript" >
+//get the user input using req.body rom body-parser
+   var username = JSON.stringify(req.body.uname);
+   var useremail = JSON.stringify(req.body.uemail);
+
+   //make the query 
+   connection.query('INSERT INTO new (uname, uemail) VALUES ('+connection.escape(username)+', '+connection.escape(useremail)+')'
+
+    );</code></pre>
+        	<br />
+        	<p>Alternatively, you can use '?' characters as placeholders for values you would like to have escaped like this:</p>
+      		 <br />
+        <pre><code class="javascript">
+
+   //make the query 
+   connection.query('INSERT INTO new (uname, uemail) VALUES ( ? '+[username]+', ? '+[useremail]+',)'
+
+    );</code></pre>
+        	
+    </div><div class="bg-text">
+    <h4>This is where the magic Happens - <a href="mysql-nodeapp.zip">Fancy Stuff</a></h4>
+</div>
+<div class="bg-text">
+    <h4>Additional Resourse</h4>
+    <p><a href="https://github.com/felixge/node-mysql/">github.com/felixge/node-mysql/</a></p>
+</div>
+<div class="bg-text">
+    <h3>Prepared By:</h3>
+    <h4><a target="_blank" href="http://winnerjitrathor.com">Winnerjit Singh Rathor</a></h4>
+    <h4><a target="_blank" href="http://himawansudarso.com">Himawan Sudarso</a></h4>
+
+</div>
+</div>
+     </div>
+    
+
+</div>
+
+
+</body>
+</html>

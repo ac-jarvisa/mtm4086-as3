@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en-ca">
+<head>
+<meta charset="utf-8">
+<title>Event Module</title>
+
+<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?lang=css&skin=desert"></script>
+<link rel="stylesheet" href="styles/style.css" id="styles">
+
+<!-- My Google fonts -->
+        <link href='http://fonts.googleapis.com/css?family=Overlock:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600,700,800' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:700' rel='stylesheet' type='text/css'>
+        
+</head>
+
+	<body>
+    <header></header>
+    <div class="container">
+    
+        <div id ="first">
+        <h1 class="yellow">Using Node's Event Module</h1>
+        <section>
+        <h3>EventEmitter: What and why?</h3>
+        <p>event.EventEmitter is a class which is used to provide a stable interface for triggering and binding callbacks to events. It's used internally in many of the Node core libraries and provides a solid foundation to build event-based classes and applications.</p>
+        <p>It allows you to listen for events and assign actions to run when those events occur. Unlike front end Javascript, we can emit events on our own, when we choose to and not necessarily based on user interaction.</p>
+        <p>Why use the Events module? In Node, it's an alternative to deeply nested callbacks. In other words - callback hell. Another benefit worth noting: an event can be emitted, but if no code is listening for it, it's fine it will go unnoticed. This means removing listeners (or event emissions) never results in JavaScript errors! Woohoo!</p>
+        <h4 class="changeMe yellow">Let's see what it can do son!</h4>
+        </section>
+        </div><!--end of first-->
+        
+        <div id="second">
+        <section>
+        
+        <p>Let's start with the EventEmitter class on its own. It's pretty easy to get at, we just require the events module:</p>
+         
+        <pre class="prettyprint cute"><code data-trim contenteditable>var events = require("events");</code>
+        </pre>
+        
+        <p>This events object has a single property, which is the EventEmitter class itself. A simple example:</p>
+        
+        <pre class="prettyprint cute"><code data-trim contenteditable>var EventEmitter = require("events").EventEmitter;
+var newEE = new EventEmitter();
+
+newEE.on('magicMan', function(funStuff) {
+    console.log(funStuff);
+});
+
+setInterval(function() {
+    newEE.emit('magicMan', 'Yay Himawan!');
+}, 5000);
+
+setInterval(function() {
+    newEE.emit('magicMan', 'Go Himawan!');
+}, 7000);
+        </code>
+        </pre>
+        
+        
+        <p>We created a new EventEmitter object. This object has two main methods that we use for events: on and emit.</p>
+        <p>The on method takes two parameters: we start with the name of the event we're listening for (in this case, that's magicMan)</p>
+        <p>The second parameter is the function that will be called when the event occurs. That's all that's required for setting up an event.</p>
+        <p>To fire the event, you pass the event name to the EventEmitter instance's emit method. That's the last line of the code above. If you run that snippet, you'll see the text printed out to the console.</p>
+        <p>We can have more than one listener for each event. Multiple event listeners can be assigned (using on), and all functions will be called when the event is fired. By default, Node only allows up to ten listeners on one event at once. If more are created, a warning will be issued. However, we can alter this amount by using setMaxListeners. For example, if you run this without the setMaxListeners, you should see a warning printed out above the output:</p>
+        
+        
+       <pre class="prettyprint cute"><code data-trim contenteditable>var ee = new EventEmitter();
+ee.setMaxListeners(15);//we add this to avoid getting the error
+ee.on("awesomeEvent", function () { console.log("event 1"); });
+ee.on("awesomeEvent", function () { console.log("event 2"); });
+ee.on("awesomeEvent", function () { console.log("event 3"); });
+ee.on("awesomeEvent", function () { console.log("event 4"); });
+ee.on("awesomeEvent", function () { console.log("event 5"); });
+ee.on("awesomeEvent", function () { console.log("event 6"); });
+ee.on("awesomeEvent", function () { console.log("event 7"); });
+ee.on("awesomeEvent", function () { console.log("event 8"); });
+ee.on("awesomeEvent", function () { console.log("event 9"); });
+ee.on("awesomeEvent", function () { console.log("event 10"); });
+ee.on("awesomeEvent", function () { console.log("event 11"); });
+//ee.removeAllListeners("awesomeEvent");
+ee.emit("awesomeEvent");</code>
+       </pre>
+       <h4 class="changeMe yellow">Other useful EventEmitter methods:</h4>
+       <p>The once method is just like the on method, only after being called the first time, the listener is removed</p>
+       <pre class="prettyprint cute"><code data-trim contenteditable>ee.once("firstConnection", function () { console.log("You'll never me again"); });
+//ee.removeAllListeners();
+ee.emit("firstConnection");
+ee.emit("firstConnection");</code>
+       </pre>
+       <p>The second emission of the event isn't picked up by any listeners. Yay!</p>
+       <p>To remove all the listeners bound to an event, you can use removeAllListeners; just pass it the name of the event:</p>
+       
+       <pre class="prettyprint cute"><code data-trim contenteditable>ee.removeAllListeners("awesomeEvent");</code>
+       </pre>
+<p>I already placed it where it belongs in the awesomeEvent example, you can remove the comment slashes to run it. To remove all listeners for all events, call the function without any parameters:</p>
+<pre class="prettyprint cute"><code data-trim contenteditable>ee.removeAllListeners();</code>
+       </pre>
+<p>That snippet is also ready for you to uncomment in the once example</p>
+<p>To learn more about this module, please DO ask Adam  ;)</p>
+       </section>
+       </div><!--end of second-->
+       </div><!--END OF CONTAINER-->
+       <!--sources:http://code.tutsplus.com/tutorials/using-nodes-event-module--net-35941
+http://nodejs.org/api/events.html#events_emitter_setmaxlisteners_n
+https://sunilkumarn.wordpress.com/2013/07/07/node-js-event-emitters-and-listeners/-->
+    <footer>Kristelle MacSween</footer>
+    </body>
+</html>

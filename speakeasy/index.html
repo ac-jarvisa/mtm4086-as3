@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Speakeasy Node Module</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        <link href="css/styles.css" rel="stylesheet" type="text/css" />
+    </head>
+    
+    <body>
+                
+        <div class="container">
+            <section>
+                <h1>Speakeasy</h1>
+                
+                <h2>HOTP</h2>
+                
+                <p>HOTP generates a one-time password using a counter-based algorithm. When generating the password you can specify the key, counter, password length, as well as the encoding (ASCII, hexadecimal, or base32). The generated password will be returned as a string.</p>
+                
+                <h3>Parameters</h3>
+                <ul>
+                    <li>Key: the secret key in ascii, hex, or base32</li>
+                    <li>Counter: the moving factor</li>
+                    <li>Length(default 6): length of generated password</li>
+                    <li>Encoding(default ascii): the encoding of the key</li>
+                </ul>
+                
+                <h3>Code Sample</h3>
+                <code>
+                    speakeasy.hotp({key: 'kitten', counter: 582, length: 8});
+                </code>
+                
+                <h3>Output</h3>
+                <code>
+                    27808785
+                </code>
+            </section>
+            
+            <section>
+                <h2>TOTP</h2>
+                
+                <p>TOTP generates a one-time password using a time-based algorithm. When generating the password you may specify the key, step, time, intitial time, length, and the encoding.</p>
+                
+                <h3>Parameters</h3>
+                <ul>
+                    <li>Key: the secret key in ascii, hex, or base32</li>
+                    <li>Step(default 30): the time step, in seconds</li>
+                    <li>Time (default current time): the time to calculate the TOTP from</li>
+                    <li>Initial_time (default 0): the starting time to calculate the TOTP from</li>
+                    <li>Length(default 6): length of generated password</li>
+                    <li>Encoding(default ascii): the encoding of the key</li>
+                </ul>
+                
+                <h3>Code Sample</h3>
+                <code>
+                    speakeasy.totp({key: 'kitten', step: 60});
+                </code>
+                
+                <h3>Output</h3>
+                <code>
+                    655306
+                </code>
+            </section>
+            
+            <section>
+                <h2>Generate Key</h2>
+                
+                <p>Generates a random secret key in ascii, hex, or base32. While generating the key you can specify the length, symbols, qr codes, google authenticator qr codes, and name.</p>
+                
+                <h3>Parameters</h3>
+                <ul>
+                    <li>Qr_codes (default false): generate links to qr codes for each encoded key</li>
+                    <li>Symbols (default true): include symbols in the key</li>
+                    <li>Google_auth_qr (default false): generate a link to a qr code</li>
+                    <li>Name(optional): give a name if you used googe_auth_qr</li>
+                    <li>Length(default 32): length of generated password</li>
+                </ul>
+                
+                <h3>Code Sample</h3>
+                <code>
+                    speakeasy.generate_key({length: 15, qr_codes: true});
+                </code>
+                
+                <h3>Output</h3>
+                <code class="mar-bot">
+                    { ascii: 'a@H>.9Bzbmg@@K}',<br />
+                      hex: '6140483e2e39427a626d6740404b7d',<br />
+                      base32: 'MFAEQPROHFBHUYTNM5AEAS35',<br />
+                      qr_code_ascii: https://chart.googleapis.com/chart?chs=166x166&chld=L|0&cht=qr
+                    &chl=a%40H%3E.9Bzbmg%40%40K%7D, <br />
+                      qr_code_hex: 'https://chart.googleapis.com/chart?chs=166x166&chld=L|0&cht=qr&c
+                    hl=6140483e2e39427a626d6740404b7d',<br />
+                      qr_code_base32: 'https://chart.googleapis.com/chart?chs=166x166&chld=L|0&cht=q
+                    r&chl=MFAEQPROHFBHUYTNM5AEAS35' }
+                </code>
+                
+                <img src="images/qr.png" />
+            </section>
+        </div>
+    </body>
+</html>
